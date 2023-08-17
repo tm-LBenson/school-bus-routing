@@ -1,34 +1,82 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# School Bus Routing Application
 
-## Getting Started
+## Overview
 
-First, run the development server:
+The application enables a school bus owner to plan bus routes, assign students to routes, manage stops, and calculate total trip time. It provides a user-friendly interface for handling these tasks, with real-time updates and additional features.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+## Technology Stack
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Frontend**: Next.js
+- **Backend**: Next.js (API features)
+- **Database**: Firebase
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Backend
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Database Schema
 
-## Learn More
+1. **Routes Table**:
+   - RouteID (Primary Key)
+   - StartingAddress
+   - EndingAddress
+   - TotalTripTime
+2. **Stops Table**:
+   - StopID (Primary Key)
+   - RouteID (Foreign Key)
+   - Address
+   - NoteDetails
+3. **Students Table**:
+   - StudentID (Primary Key)
+   - StopID (Foreign Key)
+   - Name
+   - Grade
+   - AdditionalDetails
 
-To learn more about Next.js, take a look at the following resources:
+### API Endpoints
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Route Management (Create, Read, Update, Delete)
+- Student Management (Assign, Edit, Remove)
+- Stop Management (Add, Modify, Delete)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### Middleware
 
-## Deploy on Vercel
+- Authorization
+- Data Validation
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Integration
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Mapping services for trip time calculation
+
+## Frontend (Next.js)
+
+### Pages and Components
+
+- **Dashboard Page**: Overview of all routes, stops, and students.
+- **Route Management Page**: Create, modify, and delete routes.
+- **Student Management Page**: Assign and manage students.
+- **Stop Management Page**: Add, edit, and delete stops.
+
+### State Management
+
+- Redux
+- Real-time updates from Firebase
+
+### Styling
+
+- CSS modules or compatible CSS framework
+
+### Accessibility and Responsiveness
+
+- Accessible components
+- Responsive design
+
+### User Authentication
+
+- Implementation as needed
+
+### Documentation
+
+- Comprehensive component and feature documentation
+
+## Conclusion
+
+The application aligns with the essential requirements for planning and managing school bus routes, offering a comprehensive design for both backend and frontend. It leverages Next.js for a cohesive and efficient development experience.
